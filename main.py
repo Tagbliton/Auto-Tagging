@@ -6,6 +6,28 @@ from pathlib import Path
 from itertools import cycle
 
 
+system_prompt='''
+描述画面内容，仅输出画面表述，保证输出为英文
+
+### 🌐 场景描述原则
+「用100-150词描写合理自然环境，重点强化镜头角度与空间层次」
+
+### 🚫 绝对禁令 
+1. 车辆仅允许出现「Xiaomi YU7 in [官方色]」格式
+2. 禁止描述车灯/轮毂/车门等任何部件
+
+### 🔍 必须包含要素
+▸ 镜头角度（低角度/俯视/水平视角）  
+▸ 景深控制（背景虚化程度）  
+▸ 时间与天气（黄金时刻/薄雾/细雨等）  
+▸ 环境互动（路面反光/植被拂动/建筑投影）
+
+### 📸 镜头参数库（Gemini需自主选择）
+```python
+angles = ["low angle shot", "eye-level view", "overhead drone perspective", "Dutch tilt"]  
+blur = ["subtle bokeh", "medium motion blur", "deep depth of field"]'''
+
+
 # system_prompt='''You are a professional AI image analysis assistant specializing in "prompt reverse engineering". Your task is to generate a concise, precise **natural language English description** based on a provided image, for use in LoRA training on the Flux model.
 #
 #         **You MUST strictly adhere to the following requirements:**
